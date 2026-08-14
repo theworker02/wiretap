@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>CLI — Wiretap</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="css/brand.css"/>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand-link" href="index.html"><img src="assets/logo-mark.svg" alt=""/>WIRETAP</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="get-started.html">Get started</a>
+        <a href="cli.html" aria-current="page">CLI</a>
+        <a href="library.html">Library</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="examples.html">Examples</a>
+        <a href="security.html">Security</a>
+        <a href="branding.html">Brand</a>
+        <a href="changelog.html">Changelog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>CLI</h1>
+    <p class="lead">Expansive command surface for Wiretap 0.4 — grouped in <code>wiretap --help</code>. Run <code>wiretap &lt;cmd&gt; --help</code> for flags, or <code>wiretap help-all</code> to dump every help text.</p>
+
+    <h2>Map</h2>
+    <pre><code># Analysis
+wiretap analyze|a|summary|stats|dump|hypotheses|explain|inspect
+wiretap diff|correlate|cluster|entropy|checksum|strings|timestamps
+wiretap fingerprint|export|eval|experiment|tui|visualize|report|replay|format
+
+# Project
+wiretap init|project [init|status|info|path|tree]
+wiretap sample [add|list|show|rm|label]
+wiretap annotate [list] | unannotate | note
+
+# Schema &amp; codegen
+wiretap schema [infer|diff|merge|edit|fmt|lint] | validate | lint | generate [go|kaitai|wireshark]
+
+# Capture
+wiretap index | watch | capture
+
+# Tooling
+wiretap catalog|passes|config|env|doctor|docs|about|completion|help-all|version</code></pre>
+
+    <h2>Recon helpers</h2>
+    <pre><code>wiretap stats examples/mystery/captures.hex
+wiretap dump examples/mystery/captures.hex --limit 2
+wiretap summary examples/mystery/captures.hex
+wiretap fingerprint examples/mystery/captures.hex
+wiretap hypotheses examples/mystery/captures.hex --kind checksum
+wiretap passes</code></pre>
+
+    <h2>Analyze</h2>
+    <pre><code>wiretap analyze examples/mystery/captures.hex
+wiretap analyze --budget quick --jobs 4 examples/mystery/captures.hex
+wiretap analyze --format html -o report.html examples/mystery/captures.hex
+wiretap analyze --pcap authorized.pcap</code></pre>
+    <p>Budgets: <code>quick</code> | <code>normal</code> | <code>exhaustive</code>. Formats: <code>text</code> | <code>json</code> | <code>html</code>.</p>
+
+    <h2>Differential &amp; probes</h2>
+    <pre><code>wiretap diff PATH
+wiretap correlate --label KEY PATH
+wiretap experiment run
+wiretap entropy PATH
+wiretap checksum PATH
+wiretap cluster PATH
+wiretap explain --at 0x04..0x05 PATH</code></pre>
+
+    <h2>Schema &amp; codegen</h2>
+    <pre><code>wiretap schema infer PATH &gt; schema.yaml
+wiretap validate schema.yaml
+wiretap generate go schema.yaml --package pkg
+wiretap generate kaitai schema.yaml
+wiretap generate wireshark schema.yaml --package pkg
+wiretap compare-schemas a.yaml b.yaml</code></pre>
+
+    <h2>Project &amp; notes</h2>
+    <pre><code>wiretap project init ./my-proto
+wiretap sample add file.bin
+wiretap note 0x04 "likely length"
+wiretap note --list</code></pre>
+
+    <h2>Local docs</h2>
+    <pre><code>wiretap docs index
+wiretap docs architecture
+wiretap docs brand</code></pre>
+    <p>Markdown docs ship in the repo under <code>docs/</code>. This site mirrors the highlights for browsing. Sources live in <code>docs-site/</code> for GitHub Pages.</p>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="index.html">Home</a> · Wiretap docs-site</p>
+  </footer>
+</body>
+</html>

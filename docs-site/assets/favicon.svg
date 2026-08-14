@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Wiretap">
+  <rect width="32" height="32" rx="8" fill="#0b0f12"/>
+  <path d="M5 16 H10 C12 16 13 8 16 8 S20 24 22 24 H27"
+        fill="none" stroke="#148f8a" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="22" cy="24" r="2.2" fill="#d4a373"/>
+</svg>

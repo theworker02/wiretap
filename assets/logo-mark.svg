@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Wiretap mark">
+  <defs>
+    <linearGradient id="m" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#148f8a"/>
+      <stop offset="100%" stop-color="#d4a373"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="#0b0f12"/>
+  <circle cx="64" cy="58" r="36" fill="none" stroke="#1a2a30" stroke-width="2"/>
+  <path d="M28 60 H44 C50 60 52 36 60 36 S72 84 80 84 H100"
+        fill="none" stroke="url(#m)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="80" cy="84" r="6" fill="#d4a373"/>
+  <path d="M80 90 V106" stroke="#d4a373" stroke-width="3.5" stroke-linecap="round"/>
+  <rect x="70" y="104" width="20" height="5" rx="1.5" fill="#148f8a"/>
+</svg>

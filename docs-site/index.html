@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Wiretap — evidence-backed protocol inference</title>
+  <meta name="description" content="Offline, deterministic binary protocol inference by @theworker02. Competing evidence-backed field hypotheses — no LLM APIs, no telemetry."/>
+  <meta property="og:title" content="Wiretap"/>
+  <meta property="og:description" content="Evidence-backed binary protocol inference — offline, deterministic, explainable"/>
+  <meta property="og:image" content="assets/social-preview.svg"/>
+  <meta property="og:url" content="https://theworker02.github.io/wiretap/"/>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="css/brand.css"/>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand-link" href="index.html"><img src="assets/logo-mark.svg" width="32" height="32" alt=""/>WIRETAP</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="get-started.html">Get started</a>
+        <a href="cli.html">CLI</a>
+        <a href="library.html">Library</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="examples.html">Examples</a>
+        <a href="security.html">Security</a>
+        <a href="branding.html">Brand</a>
+        <a href="changelog.html">Changelog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wide">
+    <section class="hero">
+      <img class="hero-logo" src="assets/logo.svg" alt="Wiretap"/>
+      <p>
+        <span class="meta-pill">v0.4</span>
+        <span class="meta-pill">Go 1.23+</span>
+        <span class="meta-pill">Apache-2.0</span>
+        <span class="meta-pill">@theworker02</span>
+      </p>
+      <h1>WIRETAP</h1>
+      <p class="tagline">Evidence-backed binary protocol inference — offline, deterministic, explainable. Competing field hypotheses with measured evidence. No LLM APIs. No telemetry.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="get-started.html">Get started</a>
+        <a class="btn" href="https://github.com/theworker02/wiretap">GitHub</a>
+        <a class="btn" href="https://github.com/sponsors/theworker02">Sponsor</a>
+        <a class="btn" href="cli.html">CLI map</a>
+      </div>
+    </section>
+
+    <h2>Why Wiretap</h2>
+    <p class="lead">Measure first. Propose competing hypotheses. Attach evidence. If the corpus is thin, say <strong>Insufficient evidence</strong> — never invent confidence.</p>
+
+    <div class="feature-grid">
+      <div class="feature">
+        <h3>Inference pipeline</h3>
+        <p>Stats → regions → competing passes → competition prune → structured report.</p>
+      </div>
+      <div class="feature">
+        <h3>Honest confidence</h3>
+        <p>Evidence-gated ranks. Overlapping aliases pruned. Entropy stays candid.</p>
+      </div>
+      <div class="feature">
+        <h3>Offline by design</h3>
+        <p>No telemetry, no cloud models. Captures stay on your machine.</p>
+      </div>
+      <div class="feature">
+        <h3>Exports</h3>
+        <p>HTML/JSON reports, SVG/Mermaid maps, Go / Kaitai / Wireshark stubs.</p>
+      </div>
+    </div>
+
+    <h2>Install</h2>
+    <pre><code>go install github.com/theworker02/wiretap/cmd/wiretap@latest
+wiretap doctor
+wiretap catalog
+wiretap analyze examples/mystery/captures.hex</code></pre>
+    <p>Requires Go 1.23+. Or build from source — see <a href="get-started.html">Get started</a>.</p>
+
+    <h2>Quick demo</h2>
+    <pre><code># Unix
+./scripts/demo.sh
+
+# Windows PowerShell
+.\scripts\demo.ps1</code></pre>
+    <p>Walkthroughs and corpora: <a href="examples.html">Examples</a>.</p>
+
+    <div class="note">
+      Authorized use only. Capture helpers load operator-provided files — not MITM, not live interface sniffing.
+      Read <a href="security.html">Security</a>. Maintained by <a href="https://github.com/theworker02">@theworker02</a>.
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      Wiretap · Apache-2.0 ·
+      <a href="https://github.com/theworker02/wiretap">github.com/theworker02/wiretap</a> ·
+      <a href="https://github.com/sponsors/theworker02">Sponsors</a> ·
+      <a href="https://thanks.dev/u/gh/theworker02">thanks.dev</a>
+    </p>
+  </footer>
+</body>
+</html>

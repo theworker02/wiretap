@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 160" role="img" aria-label="Wiretap">
+  <defs>
+    <linearGradient id="sig" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#148f8a"/>
+      <stop offset="55%" stop-color="#2a9d8f"/>
+      <stop offset="100%" stop-color="#d4a373"/>
+    </linearGradient>
+  </defs>
+  <!-- clean dark panel -->
+  <rect width="720" height="160" fill="#0b0f12"/>
+  <!-- subtle left rail -->
+  <rect x="0" y="0" width="6" height="160" fill="#148f8a"/>
+  <!-- mark -->
+  <g transform="translate(36,40)">
+    <circle cx="40" cy="40" r="38" fill="none" stroke="#1a2a30" stroke-width="2"/>
+    <path d="M12 44 H28 C34 44 36 22 44 22 S54 66 62 66 H78"
+          fill="none" stroke="url(#sig)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="62" cy="66" r="5.5" fill="#d4a373"/>
+    <path d="M62 71.5 V84" stroke="#d4a373" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <!-- wordmark -->
+  <text x="140" y="78" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="42" font-weight="700" letter-spacing="10" fill="#f3f6f7">WIRETAP</text>
+  <text x="142" y="108" font-family="ui-sans-serif, system-ui, Segoe UI, sans-serif"
+        font-size="13" letter-spacing="3.5" fill="#7d949c">BINARY PROTOCOL INFERENCE</text>
+  <!-- thin baseline -->
+  <line x1="140" y1="122" x2="560" y2="122" stroke="#1a2a30" stroke-width="1"/>
+  <line x1="140" y1="122" x2="220" y2="122" stroke="#d4a373" stroke-width="2"/>
+</svg>

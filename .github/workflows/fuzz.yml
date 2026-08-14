@@ -1,0 +1,21 @@
+name: fuzz
+
+on:
+  pull_request:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+jobs:
+  fuzz:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.23.x"
+      - name: Short fuzz (CI budget)
+        run: |
+          go test ./internal/capture -fuzz=FuzzParseHex -fuzztime=10s
+          go test ./internal/inference -fuzz=FuzzChecksum -fuzztime=10s
+          go test ./schema -fuzz=FuzzSchemaYAML -fuzztime=10s

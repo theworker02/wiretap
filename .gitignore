@@ -1,0 +1,12 @@
+bin/
+*.exe
+*.test
+*.out
+.DS_Store
+.idea/
+.vscode/
+*.tmp
+coverage.txt
+reports/
+tmp_*
+tmp_gen/

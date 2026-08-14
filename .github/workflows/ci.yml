@@ -1,0 +1,77 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        go: ["1.23.x", "1.24.x", "stable"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: ${{ matrix.go }}
+      - name: Fmt
+        run: test -z "$(gofmt -l .)"
+      - name: Vet
+        run: go vet ./...
+      - name: Test
+        run: go test ./...
+      - name: Race
+        run: go test -race ./...
+      - name: Build
+        run: go build -o wiretap ./cmd/wiretap
+      - name: Staticcheck
+        run: |
+          go install honnef.co/go/tools/cmd/staticcheck@latest
+          staticcheck ./...
+      - name: Smoke mystery
+        run: |
+          go run ./scripts/gen_mystery.go examples/mystery
+          ./wiretap analyze --budget quick --format json examples/mystery/captures.hex > /tmp/out.json
+          ./wiretap version
+          ./wiretap inspect examples/mystery/captures.hex
+
+  docs-links:
+    name: Docs link check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify relative links in README and docs/*.md
+        run: |
+          set -euo pipefail
+          python3 <<'PY'
+          import pathlib
+          import re
+          import sys
+
+          root = pathlib.Path(".").resolve()
+          files = [pathlib.Path("README.md")] + sorted(pathlib.Path("docs").glob("*.md"))
+          link_re = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
+          missing = []
+
+          for path in files:
+              text = path.read_text(encoding="utf-8")
+              for match in link_re.finditer(text):
+                  target = match.group(1).strip().strip("<>")
+                  if not target or target.startswith(("http://", "https://", "mailto:", "#")):
+                      continue
+                  # drop title and anchor: path "title" or path#anchor
+                  target = target.split()[0].strip("\"'")
+                  file_part = target.split("#", 1)[0]
+                  if not file_part:
+                      continue
+                  resolved = (path.parent / file_part).resolve()
+                  if not resolved.exists():
+                      missing.append(f"{path}: missing {file_part}")
+
+          if missing:
+              print("\n".join(missing))
+              sys.exit(1)
+          print(f"OK: checked relative links in {len(files)} files")
+          PY

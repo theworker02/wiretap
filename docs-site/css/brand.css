@@ -1,0 +1,271 @@
+/* Wiretap brand — theworker02 · see docs/brand.md */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+
+:root {
+  --wt-bg: #0b0f12;
+  --wt-bg-elevated: #121a1e;
+  --wt-bg-card: #151e23;
+  --wt-grid: #1a2a30;
+  --wt-ink: #148f8a;
+  --wt-teal: #2a9d8f;
+  --wt-gold: #d4a373;
+  --wt-gold-dim: #b8894f;
+  --wt-fg: #f3f6f7;
+  --wt-fg-muted: #7d949c;
+  --wt-cream: #f0e6d0;
+  --wt-danger: #c45a5a;
+  --wt-max: 54rem;
+  --wt-font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Code", Consolas, monospace;
+  --wt-font-sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--wt-font-sans);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--wt-fg);
+  background:
+    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(20, 143, 138, 0.18), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 90% 0%, rgba(212, 163, 115, 0.08), transparent 50%),
+    var(--wt-bg);
+}
+
+a {
+  color: var(--wt-gold);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+a:hover { color: var(--wt-cream); }
+
+img { max-width: 100%; height: auto; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid var(--wt-grid);
+  background: rgba(11, 15, 18, 0.9);
+  backdrop-filter: blur(12px);
+}
+
+.site-header-inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0.85rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--wt-fg);
+  text-decoration: none;
+  font-family: var(--wt-font-mono);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  font-size: 0.92rem;
+}
+.brand-link img { width: 2.1rem; height: 2.1rem; border-radius: 0.45rem; }
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.1rem;
+  margin-left: auto;
+  font-size: 0.9rem;
+}
+.nav a {
+  color: var(--wt-fg-muted);
+  text-decoration: none;
+  padding: 0.2rem 0;
+}
+.nav a:hover,
+.nav a[aria-current="page"] { color: var(--wt-gold); }
+
+main {
+  max-width: var(--wt-max);
+  margin: 0 auto;
+  padding: 2.75rem 1.5rem 4.5rem;
+}
+main.wide { max-width: 72rem; }
+
+.hero {
+  padding: 2.5rem 0 2.75rem;
+  border-bottom: 1px solid var(--wt-grid);
+  margin-bottom: 2.75rem;
+}
+.hero-logo {
+  display: block;
+  width: min(100%, 38rem);
+  margin: 0 0 1.75rem;
+  border-radius: 0.5rem;
+}
+.hero h1 {
+  margin: 0 0 0.85rem;
+  font-family: var(--wt-font-mono);
+  font-size: clamp(1.85rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+.hero .tagline {
+  margin: 0 0 1.5rem;
+  max-width: 38rem;
+  color: var(--wt-fg-muted);
+  font-size: 1.12rem;
+}
+
+.cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.15rem;
+  border: 1px solid var(--wt-teal);
+  background: var(--wt-bg-elevated);
+  color: var(--wt-fg);
+  font-family: var(--wt-font-mono);
+  font-size: 0.85rem;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+.btn:hover {
+  border-color: var(--wt-gold);
+  color: var(--wt-cream);
+  background: var(--wt-bg-card);
+  transform: translateY(-1px);
+}
+.btn-primary {
+  border-color: var(--wt-gold);
+  background: linear-gradient(135deg, #0f3d3a, #148f8a 70%);
+}
+
+h2 {
+  margin-top: 2.4rem;
+  font-family: var(--wt-font-mono);
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+  color: var(--wt-gold);
+  border-bottom: 1px solid var(--wt-grid);
+  padding-bottom: 0.4rem;
+}
+h3 { margin-top: 1.5rem; font-size: 1.05rem; }
+
+.lead { color: var(--wt-fg-muted); font-size: 1.05rem; }
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.feature {
+  padding: 1.15rem 1.2rem;
+  background: var(--wt-bg-card);
+  border: 1px solid var(--wt-grid);
+  border-left: 3px solid var(--wt-ink);
+  border-radius: 0 0.35rem 0.35rem 0;
+}
+.feature h3 {
+  margin: 0 0 0.45rem;
+  font-family: var(--wt-font-mono);
+  font-size: 0.95rem;
+  color: var(--wt-gold);
+}
+.feature p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--wt-fg-muted);
+}
+
+pre, code { font-family: var(--wt-font-mono); font-size: 0.88em; }
+code {
+  color: var(--wt-cream);
+  background: var(--wt-bg-elevated);
+  padding: 0.12em 0.4em;
+  border-radius: 0.2rem;
+}
+pre {
+  overflow-x: auto;
+  padding: 1.1rem 1.2rem;
+  background: #070a0c;
+  border: 1px solid var(--wt-grid);
+  border-radius: 0.35rem;
+  color: var(--wt-fg);
+  line-height: 1.5;
+}
+pre code { padding: 0; background: none; color: inherit; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin: 1rem 0;
+}
+th, td {
+  text-align: left;
+  padding: 0.6rem 0.7rem;
+  border-bottom: 1px solid var(--wt-grid);
+  vertical-align: top;
+}
+th {
+  color: var(--wt-gold);
+  font-family: var(--wt-font-mono);
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+}
+
+.note {
+  padding: 0.95rem 1.1rem;
+  border-left: 3px solid var(--wt-gold);
+  background: var(--wt-bg-elevated);
+  color: var(--wt-fg-muted);
+  border-radius: 0 0.35rem 0.35rem 0;
+}
+
+.site-footer {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+  border-top: 1px solid var(--wt-grid);
+  color: var(--wt-fg-muted);
+  font-size: 0.85rem;
+}
+.site-footer a { color: var(--wt-fg-muted); }
+.site-footer a:hover { color: var(--wt-gold); }
+
+.ascii {
+  font-size: 0.7rem;
+  line-height: 1.25;
+  color: var(--wt-teal);
+  overflow-x: auto;
+  opacity: 0.85;
+}
+
+.meta-pill {
+  display: inline-block;
+  margin-right: 0.5rem;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--wt-grid);
+  border-radius: 999px;
+  color: var(--wt-fg-muted);
+  font-family: var(--wt-font-mono);
+  font-size: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .nav { margin-left: 0; width: 100%; }
+  .hero h1 { letter-spacing: 0.08em; }
+}

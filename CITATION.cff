@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+title: Wiretap
+message: If you use Wiretap in academic work, please cite it using these metadata.
+type: software
+authors:
+  - name: "theworker02"
+    website: "https://github.com/theworker02"
+repository-code: "https://github.com/theworker02/wiretap"
+url: "https://github.com/theworker02/wiretap"
+abstract: >-
+  Wiretap is an offline, deterministic toolkit for evidence-backed binary
+  protocol inference. It proposes competing field hypotheses with measured
+  evidence, exports schemas and stubs, and refuses to invent confidence when
+  evidence is insufficient. No LLM APIs; no telemetry.
+keywords:
+  - binary protocols
+  - reverse engineering
+  - protocol inference
+  - offline analysis
+  - kaitai
+license: Apache-2.0
+version: "0.4.0"
+# date-released: "YYYY-MM-DD"  # set when tagging the release

@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/theworker02/wiretap/schema/report.schema.json",
+  "title": "Wiretap Analysis Report",
+  "description": "Stable JSON shape for wiretap analyze --format json (schema_version 1.0.0).",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "dataset_fingerprint",
+    "config_fingerprint",
+    "budget",
+    "message_count",
+    "observations",
+    "hypotheses",
+    "elapsed_ms",
+    "elapsed_us"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "tool_version": { "type": "string" },
+    "tool_commit": { "type": "string" },
+    "dataset_name": { "type": "string" },
+    "dataset_fingerprint": { "type": "string", "minLength": 1 },
+    "config_fingerprint": { "type": "string", "minLength": 1 },
+    "budget": { "type": "string", "enum": ["quick", "normal", "exhaustive"] },
+    "message_count": { "type": "integer", "minimum": 0 },
+    "min_length": { "type": "integer", "minimum": 0 },
+    "max_length": { "type": "integer", "minimum": 0 },
+    "byte_stats_summary": { "type": "array", "items": { "$ref": "#/$defs/observation" } },
+    "stats": { "type": "array", "items": { "$ref": "#/$defs/byteStat" } },
+    "regions": { "type": "array", "items": { "$ref": "#/$defs/region" } },
+    "constants": { "type": "array", "items": { "$ref": "#/$defs/region" } },
+    "observations": { "type": "array", "items": { "$ref": "#/$defs/observation" } },
+    "hypotheses": { "type": "array", "items": { "$ref": "#/$defs/hypothesis" } },
+    "warnings": { "type": "array", "items": { "type": "string" } },
+    "truncated": { "type": "boolean" },
+    "elapsed_ms": { "type": "integer", "minimum": 0 },
+    "elapsed_us": { "type": "integer", "minimum": 0 },
+    "meta": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "confidence": {
+      "type": "object",
+      "required": ["level", "score"],
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": ["High", "Medium", "Low", "Insufficient", "Unknown"]
+        },
+        "score": { "type": "number", "minimum": 0, "maximum": 1 },
+        "rationale": { "type": "string" },
+        "evidence": { "type": "array" }
+      },
+      "additionalProperties": true
+    },
+    "observation": {
+      "type": "object",
+      "properties": {
+        "kind": { "type": "string" },
+        "offset": { "type": "integer" },
+        "length": { "type": "integer" },
+        "description": { "type": "string" },
+        "metrics": { "type": "object" }
+      },
+      "additionalProperties": true
+    },
+    "hypothesis": {
+      "type": "object",
+      "required": ["id", "kind", "confidence"],
+      "properties": {
+        "id": { "type": "string" },
+        "kind": { "type": "string" },
+        "offset": { "type": "integer" },
+        "length": { "type": "integer" },
+        "description": { "type": "string" },
+        "params": { "type": "object" },
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "status": { "type": "string" },
+        "alternates": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": true
+    },
+    "region": {
+      "type": "object",
+      "properties": {
+        "start": { "type": "integer" },
+        "end": { "type": "integer" },
+        "kind": { "type": "string" },
+        "entropy_mean": { "type": "number" },
+        "confidence": { "$ref": "#/$defs/confidence" }
+      },
+      "additionalProperties": true
+    },
+    "byteStat": {
+      "type": "object",
+      "properties": {
+        "offset": { "type": "integer" },
+        "count": { "type": "integer" },
+        "unique": { "type": "integer" },
+        "entropy": { "type": "number" }
+      },
+      "additionalProperties": true
+    }
+  }
+}

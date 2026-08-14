@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Security — Wiretap</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="css/brand.css"/>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand-link" href="index.html"><img src="assets/logo-mark.svg" alt=""/>WIRETAP</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="get-started.html">Get started</a>
+        <a href="cli.html">CLI</a>
+        <a href="library.html">Library</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="examples.html">Examples</a>
+        <a href="security.html" aria-current="page">Security</a>
+        <a href="branding.html">Brand</a>
+        <a href="changelog.html">Changelog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Security &amp; authorized use</h1>
+    <p class="lead">Wiretap is a protocol <strong>analysis</strong> toolkit for data you are authorized to study.</p>
+
+    <h2>Out of scope</h2>
+    <ul>
+      <li>No MITM or network tapping</li>
+      <li>No authentication / encryption bypass helpers</li>
+      <li>No remote exploit tooling</li>
+      <li>No silent third-party capture</li>
+    </ul>
+
+    <h2>Capture helpers</h2>
+    <p><code>wiretap capture</code>, <code>wiretap watch</code>, and PCAP ingest / <code>--follow</code> only load
+    <strong>operator-provided</strong> files, directories, or stdin. <code>--follow</code> tails a growing
+    PCAP <em>file on disk</em> — it does not open network interfaces or require Npcap.</p>
+
+    <h2>Privacy</h2>
+    <ul>
+      <li>Offline by default</li>
+      <li>No telemetry</li>
+      <li>No LLM / cloud model API calls</li>
+      <li>Captures are not uploaded by Wiretap</li>
+    </ul>
+
+    <h2>Reporting vulnerabilities</h2>
+    <p>Prefer a GitHub security advisory when published. Placeholder contact:
+    <code>security@wiretap.local</code> (maintainer: replace with a real address in
+    <code>SECURITY.md</code>). Do not file public issues for undisclosed vulnerabilities.</p>
+
+    <div class="note">
+      Full policy: repository <code>SECURITY.md</code> and <code>docs/capture-ethics.md</code>.
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="index.html">Home</a> · Wiretap docs-site</p>
+  </footer>
+</body>
+</html>

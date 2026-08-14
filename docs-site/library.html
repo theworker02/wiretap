@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Library — Wiretap</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="css/brand.css"/>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand-link" href="index.html"><img src="assets/logo-mark.svg" alt=""/>WIRETAP</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="get-started.html">Get started</a>
+        <a href="cli.html">CLI</a>
+        <a href="library.html" aria-current="page">Library</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="examples.html">Examples</a>
+        <a href="security.html">Security</a>
+        <a href="branding.html">Brand</a>
+        <a href="changelog.html">Changelog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Library</h1>
+    <p class="lead">Embed Wiretap via <code>pkg/wiretap</code>. Blank-import analysis and capture so built-in passes register.</p>
+
+    <pre><code>package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+
+    _ "github.com/theworker02/wiretap/internal/analysis"
+    _ "github.com/theworker02/wiretap/internal/capture"
+    wt "github.com/theworker02/wiretap/pkg/wiretap"
+)
+
+func main() {
+    ds, err := wt.LoadFile("examples/mystery/captures.hex")
+    if err != nil {
+        fmt.Fprintln(os.Stderr, err)
+        os.Exit(1)
+    }
+    res, err := wt.Analyze(context.Background(), ds, wt.AnalyzeOptions{
+        Budget: wt.BudgetNormal,
+    })
+    if err != nil {
+        fmt.Fprintln(os.Stderr, err)
+        os.Exit(1)
+    }
+    fmt.Println(len(res.Hypotheses), res.DatasetFingerprint)
+}</code></pre>
+
+    <h2>Runnable example</h2>
+    <pre><code>go run ./examples/library
+go run ./examples/library path/to/captures.hex</code></pre>
+
+    <h2>Plugins</h2>
+    <p>Implement <code>wiretap.Pass</code>, call <code>RegisterPass</code>, and document enable/disable via pass config.
+    See <code>docs/plugins.md</code> and <code>examples/plugins/sample_pass.go</code> in the repository.</p>
+
+    <div class="note">Module path: <code>github.com/theworker02/wiretap</code> · Go 1.23+</div>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="index.html">Home</a> · Wiretap docs-site</p>
+  </footer>
+</body>
+</html>

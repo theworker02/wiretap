@@ -1,0 +1,28 @@
+# Wiretap example catalog — consumed by `wiretap catalog`
+version: 1
+examples:
+  - id: mystery
+    path: examples/mystery
+    title: Orbital Beacon (mystery)
+    summary: Undocumented fictional protocol for inference practice — magic, length, seq, timestamp, CRC.
+    difficulty: introductory
+  - id: thermostat
+    path: examples/thermostat
+    title: Thermostat differentials
+    summary: Labelled temperature samples for differential / correlation workflows.
+    difficulty: intermediate
+  - id: tlv
+    path: examples/tlv
+    title: TLV records
+    summary: Type-length-value style messages for structural heuristics.
+    difficulty: intermediate
+  - id: array_records
+    path: examples/array_records
+    title: Counted arrays
+    summary: Count field followed by repeated records.
+    difficulty: intermediate
+  - id: library
+    path: examples/library
+    title: Go library snippet
+    summary: Minimal pkg/wiretap Analyze usage (not a capture corpus).
+    difficulty: reference

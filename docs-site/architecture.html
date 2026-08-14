@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Architecture — Wiretap</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="css/brand.css"/>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand-link" href="index.html"><img src="assets/logo-mark.svg" alt=""/>WIRETAP</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="get-started.html">Get started</a>
+        <a href="cli.html">CLI</a>
+        <a href="library.html">Library</a>
+        <a href="architecture.html" aria-current="page">Architecture</a>
+        <a href="examples.html">Examples</a>
+        <a href="security.html">Security</a>
+        <a href="branding.html">Brand</a>
+        <a href="changelog.html">Changelog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Architecture</h1>
+    <p class="lead">Acquisition stays separate from inference. Reports stay separate from codegen.</p>
+
+    <pre><code>┌──────────────┐    ┌───────────────────┐    ┌─────────────────┐
+│  Importers / │───▶│ Inference engine  │───▶│ Structured      │
+│  CaptureSrc  │    │ passes + compete  │    │ Report (JSON)   │
+│  hex/bin/    │    │ cluster / index   │    └────────┬────────┘
+│  pcapng/dir  │    └───────────────────┘             │
+└──────────────┘                                      ▼
+                                           CLI / TUI / SVG / codegen</code></pre>
+
+    <h2>Principles</h2>
+    <ol>
+      <li><strong>Observation vs hypothesis</strong> — measured facts vs evidence-backed guesses</li>
+      <li><strong>Competing candidates</strong> — pruned/ranked per offset; losers explained</li>
+      <li><strong>Determinism</strong> — same inputs ⇒ same ordered outputs (<code>--jobs</code> merges by name)</li>
+      <li><strong>Budgets</strong> — <code>quick</code> / <code>normal</code> / <code>exhaustive</code></li>
+      <li><strong>Extensibility</strong> — public <code>Pass</code> registry</li>
+      <li><strong>Annotations trusted</strong> — never auto-overwritten</li>
+      <li><strong>Honest entropy</strong> — never claim “encrypted” without caveats</li>
+    </ol>
+
+    <h2>Packages</h2>
+    <table>
+      <thead>
+        <tr><th>Path</th><th>Role</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>pkg/wiretap</code></td><td>Public API + Pass registry</td></tr>
+        <tr><td><code>internal/capture</code></td><td>Hex/binary/PCAPNG + drop-folder</td></tr>
+        <tr><td><code>internal/analysis</code></td><td>Pipeline, parallel passes</td></tr>
+        <tr><td><code>internal/inference</code></td><td>Field/checksum/TLV/…/compete</td></tr>
+        <tr><td><code>internal/cluster</code></td><td>Multi-signal clustering</td></tr>
+        <tr><td><code>internal/index</code></td><td>On-disk sample index</td></tr>
+        <tr><td><code>internal/visualize</code></td><td>SVG/HTML field maps</td></tr>
+        <tr><td><code>internal/compare</code></td><td>Diff, correlation, experiments</td></tr>
+        <tr><td><code>internal/eval</code></td><td>Measured evaluation</td></tr>
+        <tr><td><code>internal/tui</code></td><td>Interactive report browser</td></tr>
+        <tr><td><code>schema</code></td><td>AST + Go/Kaitai/Wireshark codegen</td></tr>
+      </tbody>
+    </table>
+
+    <p>Full write-up: <code>docs/architecture.md</code> in the repository (<code>wiretap docs architecture</code>).</p>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="index.html">Home</a> · Wiretap docs-site</p>
+  </footer>
+</body>
+</html>

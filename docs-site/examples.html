@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Examples — Wiretap</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="css/brand.css"/>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand-link" href="index.html"><img src="assets/logo-mark.svg" alt=""/>WIRETAP</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="get-started.html">Get started</a>
+        <a href="cli.html">CLI</a>
+        <a href="library.html">Library</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="examples.html" aria-current="page">Examples</a>
+        <a href="security.html">Security</a>
+        <a href="branding.html">Brand</a>
+        <a href="changelog.html">Changelog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Examples</h1>
+    <p class="lead">Synthetic corpora and embed samples shipped with the repository.</p>
+
+    <table>
+      <thead>
+        <tr><th>Path</th><th>What it shows</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>examples/mystery</code></td><td>Classic tutorial corpus (Orbital Beacon framing)</td></tr>
+        <tr><td><code>examples/thermostat</code></td><td>CRC + zone discriminator</td></tr>
+        <tr><td><code>examples/tlv</code></td><td>Repeating TLV</td></tr>
+        <tr><td><code>examples/array_records</code></td><td>Count-prefixed records</td></tr>
+        <tr><td><code>examples/library</code></td><td>Embed Wiretap in Go</td></tr>
+        <tr><td><code>examples/plugins</code></td><td>Custom <code>Pass</code> sample</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Mystery quick path</h2>
+    <pre><code>wiretap inspect examples/mystery/captures.hex
+wiretap entropy examples/mystery/captures.hex
+wiretap analyze --budget normal examples/mystery/captures.hex
+wiretap checksum examples/mystery/captures.hex
+wiretap cluster examples/mystery/
+wiretap schema infer examples/mystery/captures.hex &gt; /tmp/mystery.yaml
+wiretap validate /tmp/mystery.yaml</code></pre>
+    <p>Tutorial notes: <code>docs/mystery-tutorial.md</code>.</p>
+
+    <h2>Demo scripts</h2>
+    <pre><code>./scripts/demo.sh
+.\scripts\demo.ps1</code></pre>
+
+    <h2>Eval (synthetic metrics)</h2>
+    <pre><code>wiretap eval --n 50 --budget normal --seed 1</code></pre>
+    <p>Measured numbers only — not production accuracy claims. See repo <code>docs/eval.md</code>.</p>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="index.html">Home</a> · Wiretap docs-site</p>
+  </footer>
+</body>
+</html>

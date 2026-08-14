@@ -1,0 +1,52 @@
+version: 2
+
+project_name: wiretap
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: wiretap
+    main: ./cmd/wiretap
+    binary: wiretap
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w
+      - -X github.com/theworker02/wiretap/pkg/wiretap.Version={{.Version}}
+      - -X github.com/theworker02/wiretap/pkg/wiretap.Commit={{.ShortCommit}}
+      - -X github.com/theworker02/wiretap/pkg/wiretap.Built={{.Date}}
+
+archives:
+  - id: default
+    formats: [tar.gz]
+    format_overrides:
+      - goos: windows
+        formats: [zip]
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+
+checksum:
+  name_template: checksums.txt
+  algorithm: sha256
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+
+release:
+  draft: false
+  prerelease: auto
+
+# Signing is optional and not configured by default.
+# Do not commit binaries; artifacts are produced by goreleaser only.

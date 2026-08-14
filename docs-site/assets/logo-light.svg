@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 160" role="img" aria-label="Wiretap">
+  <defs>
+    <linearGradient id="sigL" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#0f766e"/>
+      <stop offset="100%" stop-color="#b8894f"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="160" fill="#f7fafb"/>
+  <rect x="0" y="0" width="6" height="160" fill="#0f766e"/>
+  <g transform="translate(36,40)">
+    <circle cx="40" cy="40" r="38" fill="none" stroke="#d5e0e4" stroke-width="2"/>
+    <path d="M12 44 H28 C34 44 36 22 44 22 S54 66 62 66 H78"
+          fill="none" stroke="url(#sigL)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="62" cy="66" r="5.5" fill="#b8894f"/>
+    <path d="M62 71.5 V84" stroke="#b8894f" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <text x="140" y="78" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="42" font-weight="700" letter-spacing="10" fill="#10252c">WIRETAP</text>
+  <text x="142" y="108" font-family="ui-sans-serif, system-ui, Segoe UI, sans-serif"
+        font-size="13" letter-spacing="3.5" fill="#5a727a">BINARY PROTOCOL INFERENCE</text>
+  <line x1="140" y1="122" x2="560" y2="122" stroke="#d5e0e4" stroke-width="1"/>
+  <line x1="140" y1="122" x2="220" y2="122" stroke="#b8894f" stroke-width="2"/>
+</svg>
