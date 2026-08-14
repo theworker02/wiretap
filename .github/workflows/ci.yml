@@ -12,7 +12,7 @@ jobs:
       matrix:
         go: ["1.23.x", "1.24.x", "stable"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-go@v5
         with:
           go-version: ${{ matrix.go }}
@@ -47,7 +47,7 @@ jobs:
     name: Docs link check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Verify relative links in README and docs/*.md
         run: |
           set -euo pipefail
