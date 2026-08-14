@@ -17,8 +17,8 @@ import (
 )
 
 type exampleCatalog struct {
-	Version  int             `yaml:"version" json:"version"`
-	Examples []catalogEntry  `yaml:"examples" json:"examples"`
+	Version  int            `yaml:"version" json:"version"`
+	Examples []catalogEntry `yaml:"examples" json:"examples"`
 }
 
 type catalogEntry struct {

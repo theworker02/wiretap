@@ -17,7 +17,13 @@ jobs:
         with:
           go-version: ${{ matrix.go }}
       - name: Fmt
-        run: test -z "$(gofmt -l .)"
+        run: |
+          files="$(gofmt -l .)"
+          if [ -n "$files" ]; then
+            echo "gofmt needed on:"
+            echo "$files"
+            exit 1
+          fi
       - name: Vet
         run: go vet ./...
       - name: Test

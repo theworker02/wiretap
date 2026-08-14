@@ -15,7 +15,7 @@ func TestBrowseReportPlainFallback(t *testing.T) {
 		DatasetName: "t", MessageCount: 1, MinLength: 4, MaxLength: 4,
 		Budget: "quick", Hypotheses: []wt.Hypothesis{
 			{ID: "h1", Kind: "length", Offset: 0, Length: 2,
-				Confidence: wt.Confidence{Level: wt.ConfidenceHigh, Score: 1},
+				Confidence:  wt.Confidence{Level: wt.ConfidenceHigh, Score: 1},
 				Description: "test"},
 		},
 	}

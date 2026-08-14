@@ -21,9 +21,9 @@ type CaptureSource interface {
 // WatchOptions configures directory drop / watch ingestion.
 type WatchOptions struct {
 	LoadOptions
-	Once        bool          // single scan (default for --once)
-	Extensions  []string      // default: .bin .hex .pcap .pcapng
-	Settle      time.Duration // ignore files newer than this (still writing)
+	Once       bool          // single scan (default for --once)
+	Extensions []string      // default: .bin .hex .pcap .pcapng
+	Settle     time.Duration // ignore files newer than this (still writing)
 }
 
 // LoadDropDir loads all supported capture files from a drop folder (authorized captures only).

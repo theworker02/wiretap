@@ -178,4 +178,3 @@ func TestFollowPCAPStableFile(t *testing.T) {
 		t.Fatalf("meta=%v", ds.Meta)
 	}
 }
-

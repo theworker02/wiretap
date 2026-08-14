@@ -92,7 +92,6 @@ func FuzzKaitaiGen(f *testing.F) {
 	})
 }
 
-
 func contains(s, sub string) bool {
 	return len(s) >= len(sub) && (s == sub || len(sub) == 0 || stringIndex(s, sub) >= 0)
 }
