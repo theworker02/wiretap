@@ -439,10 +439,7 @@ func toPublicStats(stats []analysis.ByteStats) []wt.ByteStat {
 func toPublicRegions(regions []analysis.Region) []wt.Region {
 	out := make([]wt.Region, len(regions))
 	for i, r := range regions {
-		out[i] = wt.Region{
-			Start: r.Start, End: r.End, Kind: r.Kind, EntropyMean: r.EntropyMean,
-			Value: r.Value, Confidence: r.Confidence, Metrics: r.Metrics,
-		}
+		out[i] = wt.Region(r)
 	}
 	return out
 }
@@ -687,11 +684,6 @@ func cmdValidate() *cobra.Command {
 	}
 }
 
-func cmdGenerate() *cobra.Command {
-	// superseded by wrapGenerate in commands_extra.go — keep stub out of AddCommand
-	return wrapGenerate()
-}
-
 func cmdSchema() *cobra.Command {
 	s := &cobra.Command{Use: "schema", Short: "Schema inference, diff, merge, and export"}
 	var outFmt string
@@ -755,8 +747,6 @@ func cmdSchema() *cobra.Command {
 	extendSchemaCommand(s)
 	return s
 }
-
-func cmdEval() *cobra.Command { return wrapEval() }
 
 func cmdTUI() *cobra.Command {
 	return &cobra.Command{

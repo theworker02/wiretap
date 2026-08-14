@@ -190,7 +190,6 @@ func parsePCAPNG(data []byte) ([]pcapPkt, error) {
 					if blockLen < 12 || off+blockLen > len(data) {
 						break
 					}
-					body = data[off+8 : off+blockLen-4]
 				}
 			}
 			linktypes = map[uint32]uint16{}

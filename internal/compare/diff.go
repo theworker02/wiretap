@@ -50,10 +50,7 @@ func Diff(ds *wt.Dataset, labelKey, valueA, valueB string) (*DiffResult, error) 
 	changed := analysis.DetectChangedRegions(a, b)
 	pub := make([]wt.Region, len(changed))
 	for i, r := range changed {
-		pub[i] = wt.Region{
-			Start: r.Start, End: r.End, Kind: r.Kind, EntropyMean: r.EntropyMean,
-			Value: r.Value, Confidence: r.Confidence, Metrics: r.Metrics,
-		}
+		pub[i] = wt.Region(r)
 	}
 	return &DiffResult{
 		LabelKey: labelKey,
