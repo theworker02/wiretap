@@ -1,6 +1,6 @@
 # Security Policy
 
-**Wiretap 0.4.0** — evidence-backed binary protocol analysis.
+**Wiretap 0.5.0** — evidence-backed binary protocol analysis.
 
 ## Authorized use only
 

@@ -18,7 +18,7 @@
 [![CI](https://github.com/theworker02/wiretap/actions/workflows/ci.yml/badge.svg)](https://github.com/theworker02/wiretap/actions/workflows/ci.yml)
 [![Go Reference](https://pkg.go.dev/badge/github.com/theworker02/wiretap.svg)](https://pkg.go.dev/github.com/theworker02/wiretap)
 [![Go](https://img.shields.io/badge/Go-1.23%2B-148f8a)](https://go.dev/)
-[![Version](https://img.shields.io/badge/version-0.4.0-0b0f12)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-0.5.0-0b0f12)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/License-Apache%202.0-0b0f12)](LICENSE)
 [![Go Report Card](https://goreportcard.com/badge/github.com/theworker02/wiretap)](https://goreportcard.com/report/github.com/theworker02/wiretap)
 
@@ -59,10 +59,10 @@ No LLM APIs. No telemetry. If evidence is thin, Wiretap says **Insufficient evid
 
 ## Install
 
-Module docs: [pkg.go.dev/github.com/theworker02/wiretap](https://pkg.go.dev/github.com/theworker02/wiretap) · pinned: [@v0.4.0](https://pkg.go.dev/github.com/theworker02/wiretap@v0.4.0) · [GitHub Release](https://github.com/theworker02/wiretap/releases/tag/v0.4.0)
+Module docs: [pkg.go.dev/github.com/theworker02/wiretap](https://pkg.go.dev/github.com/theworker02/wiretap) · pinned: [@v0.5.0](https://pkg.go.dev/github.com/theworker02/wiretap@v0.5.0) · [GitHub Release](https://github.com/theworker02/wiretap/releases/tag/v0.5.0)
 
 ```bash
-go install github.com/theworker02/wiretap/cmd/wiretap@v0.4.0
+go install github.com/theworker02/wiretap/cmd/wiretap@v0.5.0
 ```
 
 From source:
@@ -76,7 +76,7 @@ go build -o bin/wiretap ./cmd/wiretap
 Optional ldflags for release metadata:
 
 ```bash
-go build -ldflags "-X github.com/theworker02/wiretap/pkg/wiretap.Version=0.4.0" -o bin/wiretap ./cmd/wiretap
+go build -ldflags "-X github.com/theworker02/wiretap/pkg/wiretap.Version=0.5.0" -o bin/wiretap ./cmd/wiretap
 ```
 
 Requires **Go 1.23+**. See [docs/windows.md](docs/windows.md) on Windows.
@@ -86,6 +86,7 @@ Requires **Go 1.23+**. See [docs/windows.md](docs/windows.md) on Windows.
 ```bash
 wiretap doctor
 wiretap catalog
+wiretap search --ascii HTTP examples/mystery/captures.hex
 wiretap analyze examples/mystery/captures.hex
 wiretap stats examples/mystery/captures.hex --limit 16
 wiretap summary examples/mystery/captures.hex
@@ -123,7 +124,7 @@ Commands are grouped in `wiretap --help`:
 
 | Group        | Commands                                                                                                                                                                                                                                                   |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Analysis** | `analyze`, `summary`, `stats`, `dump`, `format`, `hypotheses`, `explain`, `inspect`, `diff`, `correlate`, `cluster`, `entropy`, `checksum`, `strings`, `timestamps`, `fingerprint`, `export`, `eval`, `experiment`, `tui`, `visualize`, `report`, `replay` |
+| **Analysis** | `analyze`, `summary`, `stats`, `dump`, `search`, `format`, `hypotheses`, `explain`, `inspect`, `diff`, `correlate`, `cluster`, `entropy`, `checksum`, `strings`, `timestamps`, `fingerprint`, `export`, `eval`, `experiment`, `tui`, `visualize`, `report`, `replay` |
 | **Project**  | `init`, `project`, `sample`, `annotate`, `note`                                                                                                                                                                                                            |
 | **Schema**   | `schema`, `validate`, `lint`, `generate`, `compare-schemas`                                                                                                                                                                                                |
 | **Capture**  | `index`, `watch`, `capture`                                                                                                                                                                                                                                |
@@ -132,6 +133,7 @@ Commands are grouped in `wiretap --help`:
 
 ```bash
 wiretap format --hex "8a:01:00:0c"
+wiretap search --hex DEAD captures.bin
 wiretap lint draft.yaml
 wiretap catalog
 wiretap sample list          # inside a project

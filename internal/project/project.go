@@ -51,7 +51,7 @@ func Init(dir, name string) error {
 	cfg := Config{
 		Name:      name,
 		CreatedAt: time.Now().UTC().Format(time.RFC3339),
-		Meta:      map[string]string{"wiretap": "0.4.0"},
+		Meta:      map[string]string{"wiretap": "0.5.0"},
 	}
 	b, err := yaml.Marshal(cfg)
 	if err != nil {

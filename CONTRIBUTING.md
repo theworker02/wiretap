@@ -67,7 +67,7 @@ Support routing for users: [`.github/SUPPORT.md`](.github/SUPPORT.md).
 
 ## Releases
 
-Version **0.4.0** line. Tagged releases (`v*`) use GoReleaser
+Version **0.5.0** line. Tagged releases (`v*`) use GoReleaser
 (`.goreleaser.yml`, `.github/workflows/release.yml`).
 
 ```bash

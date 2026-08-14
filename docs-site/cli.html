@@ -27,11 +27,11 @@
 
   <main>
     <h1>CLI</h1>
-    <p class="lead">Expansive command surface for Wiretap 0.4 — grouped in <code>wiretap --help</code>. Run <code>wiretap &lt;cmd&gt; --help</code> for flags, or <code>wiretap help-all</code> to dump every help text.</p>
+    <p class="lead">Expansive command surface for Wiretap 0.5 — grouped in <code>wiretap --help</code>. Run <code>wiretap &lt;cmd&gt; --help</code> for flags, or <code>wiretap help-all</code> to dump every help text.</p>
 
     <h2>Map</h2>
     <pre><code># Analysis
-wiretap analyze|a|summary|stats|dump|hypotheses|explain|inspect
+wiretap analyze|a|summary|stats|dump|search|hypotheses|explain|inspect
 wiretap diff|correlate|cluster|entropy|checksum|strings|timestamps
 wiretap fingerprint|export|eval|experiment|tui|visualize|report|replay|format
 
@@ -52,6 +52,7 @@ wiretap catalog|passes|config|env|doctor|docs|about|completion|help-all|version<
     <h2>Recon helpers</h2>
     <pre><code>wiretap stats examples/mystery/captures.hex
 wiretap dump examples/mystery/captures.hex --limit 2
+wiretap search --ascii HTTP examples/mystery/captures.hex
 wiretap summary examples/mystery/captures.hex
 wiretap fingerprint examples/mystery/captures.hex
 wiretap hypotheses examples/mystery/captures.hex --kind checksum
@@ -98,7 +99,7 @@ wiretap docs brand</code></pre>
     <p>
       <a href="index.html">Home</a> ·
       <a href="https://pkg.go.dev/github.com/theworker02/wiretap">pkg.go.dev</a> ·
-      <a href="https://github.com/theworker02/wiretap/releases/tag/v0.4.0">Release v0.4.0</a> ·
+      <a href="https://github.com/theworker02/wiretap/releases/tag/v0.5.0">Release v0.5.0</a> ·
       <a href="https://github.com/theworker02/wiretap">GitHub</a>
     </p>
   </footer>

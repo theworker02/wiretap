@@ -164,6 +164,65 @@ func classifyStat(st wt.ByteStat) string {
 	return "mixed"
 }
 
+func cmdSearch() *cobra.Command {
+	var hexPat, asciiPat string
+	c := &cobra.Command{
+		Use:   "search [path]",
+		Short: "Find a hex or ASCII byte pattern in capture messages",
+		Long:  "Searches every loaded message for a byte pattern. Provide exactly one of --hex or --ascii. Hits include message identity, offset, and surrounding context hex. Use --format json for machine output.",
+		Example: `  wiretap search --ascii HTTP examples/mystery/captures.hex
+  wiretap search --hex DEADBEEF captures.bin
+  wiretap search --hex "de ad be ef" --format json captures.hex`,
+		Args: cobra.MaximumNArgs(1),
+		RunE: func(cmd *cobra.Command, args []string) error {
+			var pattern []byte
+			switch {
+			case hexPat != "" && asciiPat != "":
+				return fmt.Errorf("%w: specify exactly one of --hex or --ascii", wt.ErrInvalidConfig)
+			case hexPat != "":
+				decoded, err := wt.ParseHex(hexPat)
+				if err != nil {
+					return err
+				}
+				pattern = decoded
+			case asciiPat != "":
+				pattern = []byte(asciiPat)
+			default:
+				return fmt.Errorf("%w: specify --hex or --ascii", wt.ErrInvalidConfig)
+			}
+			ds, err := loadDataset(args)
+			if err != nil {
+				return err
+			}
+			if ds.Len() == 0 {
+				return wt.ErrEmptyDataset
+			}
+			hits, err := ds.Search(pattern)
+			if err != nil {
+				return err
+			}
+			if strings.EqualFold(flagFormat, "json") {
+				enc := json.NewEncoder(os.Stdout)
+				enc.SetIndent("", "  ")
+				return enc.Encode(hits)
+			}
+			if len(hits) == 0 {
+				fmt.Println("no matches")
+				return nil
+			}
+			for _, hit := range hits {
+				fmt.Printf("[%d] id=%s offset=0x%04X len=%d context=%s\n",
+					hit.MessageIndex, hit.MessageID, hit.Offset, hit.Length, hit.ContextHex)
+			}
+			fmt.Printf("%d match(es)\n", len(hits))
+			return nil
+		},
+	}
+	c.Flags().StringVar(&hexPat, "hex", "", "hex pattern (spaces, 0x, and colons allowed)")
+	c.Flags().StringVar(&asciiPat, "ascii", "", "literal ASCII/UTF-8 pattern")
+	return c
+}
+
 func cmdDump() *cobra.Command {
 	var limit, width, msgIndex int
 	c := &cobra.Command{
