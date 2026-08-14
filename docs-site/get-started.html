@@ -30,8 +30,15 @@
     <p class="lead">Install Wiretap, verify the toolchain, run the demo scripts, then explore the mystery corpus.</p>
 
     <h2>Install</h2>
+    <p>
+      Official module:
+      <a href="https://pkg.go.dev/github.com/theworker02/wiretap"><code>github.com/theworker02/wiretap</code></a>
+      on <a href="https://pkg.go.dev/github.com/theworker02/wiretap">pkg.go.dev</a>
+      (<a href="https://pkg.go.dev/github.com/theworker02/wiretap@v0.4.0">@v0.4.0</a>).
+    </p>
+
     <h3>go install</h3>
-    <pre><code>go install github.com/theworker02/wiretap/cmd/wiretap@latest</code></pre>
+    <pre><code>go install github.com/theworker02/wiretap/cmd/wiretap@v0.4.0</code></pre>
 
     <h3>Build from source</h3>
     <pre><code>git clone https://github.com/theworker02/wiretap.git
@@ -41,7 +48,11 @@ make build &amp;&amp; ./bin/wiretap version
 # See docs/windows.md in the repo</code></pre>
 
     <h3>Release binaries</h3>
-    <p>Tagged releases use GoReleaser. Download the archive for your OS/arch from GitHub Releases when published.</p>
+    <p>
+      Download OS/arch archives from
+      <a href="https://github.com/theworker02/wiretap/releases/tag/v0.4.0">GitHub Release v0.4.0</a>
+      (built with GoReleaser).
+    </p>
 
     <h2>Doctor</h2>
     <pre><code>wiretap doctor</code></pre>
@@ -72,13 +83,19 @@ wiretap completion powershell</code></pre>
     <ul>
       <li><a href="cli.html">CLI map</a></li>
       <li><a href="library.html">Library usage</a></li>
+      <li><a href="https://pkg.go.dev/github.com/theworker02/wiretap">Go module docs (pkg.go.dev)</a></li>
       <li><a href="examples.html">Example corpora</a></li>
       <li>Repo README and <code>docs/</code> markdown (also via <code>wiretap docs index</code>)</li>
     </ul>
   </main>
 
   <footer class="site-footer">
-    <p><a href="index.html">Home</a> · Wiretap docs-site</p>
+    <p>
+      <a href="index.html">Home</a> ·
+      <a href="https://pkg.go.dev/github.com/theworker02/wiretap">pkg.go.dev</a> ·
+      <a href="https://github.com/theworker02/wiretap/releases/tag/v0.4.0">Release v0.4.0</a> ·
+      <a href="https://github.com/theworker02/wiretap">GitHub</a>
+    </p>
   </footer>
 </body>
 </html>

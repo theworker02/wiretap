@@ -59,7 +59,7 @@ No LLM APIs. No telemetry. If evidence is thin, Wiretap says **Insufficient evid
 
 ## Install
 
-Official module: [`github.com/theworker02/wiretap`](https://pkg.go.dev/github.com/theworker02/wiretap) on [pkg.go.dev](https://pkg.go.dev/github.com/theworker02/wiretap@v0.4.0).
+Module docs: [pkg.go.dev/github.com/theworker02/wiretap](https://pkg.go.dev/github.com/theworker02/wiretap) · pinned: [@v0.4.0](https://pkg.go.dev/github.com/theworker02/wiretap@v0.4.0) · [GitHub Release](https://github.com/theworker02/wiretap/releases/tag/v0.4.0)
 
 ```bash
 go install github.com/theworker02/wiretap/cmd/wiretap@v0.4.0
@@ -216,13 +216,13 @@ wiretap catalog
 ```
 
 
-| ID            | Path                                               |
-| ------------- | -------------------------------------------------- |
-| mystery       | `[examples/mystery](examples/mystery)`             |
-| thermostat    | `[examples/thermostat](examples/thermostat)`       |
-| tlv           | `[examples/tlv](examples/tlv)`                     |
-| array_records | `[examples/array_records](examples/array_records)` |
-| library       | `[examples/library](examples/library)`             |
+| ID            | Path                                         |
+| ------------- | -------------------------------------------- |
+| mystery       | [examples/mystery](examples/mystery)         |
+| thermostat    | [examples/thermostat](examples/thermostat)   |
+| tlv           | [examples/tlv](examples/tlv)                 |
+| array_records | [examples/array_records](examples/array_records) |
+| library       | [examples/library](examples/library)         |
 
 
 
@@ -240,10 +240,11 @@ files; they do not MITM or open live sniffers by default.
 
 ## Docs & site
 
-- Docs index: `[docs/](docs/)`
-- Static site: `[docs-site/](docs-site/)` (GitHub Pages workflow included)
-- Brand: `[docs/brand.md](docs/brand.md)` · assets: `[assets/](assets/)`
-- Org: `[ORGANIZATION.md](ORGANIZATION.md)`
+- Docs index: [docs/](docs/)
+- Site: [theworker02.github.io/wiretap](https://theworker02.github.io/wiretap/) ([docs-site/](docs-site/))
+- Module API: [pkg.go.dev](https://pkg.go.dev/github.com/theworker02/wiretap)
+- Brand: [docs/brand.md](docs/brand.md) · assets: [assets/](assets/)
+- Org: [ORGANIZATION.md](ORGANIZATION.md)
 
 ```bash
 wiretap docs architecture
