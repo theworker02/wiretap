@@ -16,6 +16,7 @@
 **Evidence-backed binary protocol inference — offline, deterministic, explainable**
 
 [![CI](https://github.com/theworker02/wiretap/actions/workflows/ci.yml/badge.svg)](https://github.com/theworker02/wiretap/actions/workflows/ci.yml)
+[![Go Reference](https://pkg.go.dev/badge/github.com/theworker02/wiretap.svg)](https://pkg.go.dev/github.com/theworker02/wiretap)
 [![Go](https://img.shields.io/badge/Go-1.23%2B-148f8a)](https://go.dev/)
 [![Version](https://img.shields.io/badge/version-0.4.0-0b0f12)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/License-Apache%202.0-0b0f12)](LICENSE)
@@ -57,6 +58,14 @@ No LLM APIs. No telemetry. If evidence is thin, Wiretap says **Insufficient evid
 
 
 ## Install
+
+Official module: [`github.com/theworker02/wiretap`](https://pkg.go.dev/github.com/theworker02/wiretap) on [pkg.go.dev](https://pkg.go.dev/github.com/theworker02/wiretap@v0.4.0).
+
+```bash
+go install github.com/theworker02/wiretap/cmd/wiretap@v0.4.0
+```
+
+From source:
 
 ```bash
 git clone https://github.com/theworker02/wiretap.git
@@ -162,7 +171,7 @@ ds, err := wt.LoadPath("captures.hex", wt.IngestOptions{OnePerLine: true})
 res, err := wt.Analyze(context.Background(), ds, wt.AnalyzeOptions{Budget: wt.BudgetNormal})
 ```
 
-Module: `github.com/theworker02/wiretap` · example: `[examples/library](examples/library)`
+Module: [`github.com/theworker02/wiretap`](https://pkg.go.dev/github.com/theworker02/wiretap) · example: [`examples/library`](examples/library)
 
 ## Architecture
 
