@@ -17,4 +17,4 @@ Polished mystery demo:
 ```
 
 With GNU Make (Git Bash / WSL / MSYS2), `make build test doctor` works the same
-as on Linux. Default version stamp is **0.4.0** when tags are unavailable.
+as on Linux. Default version stamp is **0.5.0** when tags are unavailable.

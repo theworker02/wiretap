@@ -43,7 +43,7 @@ func main() {
 	root := &cobra.Command{
 		Use:           "wiretap",
 		Short:         "Evidence-backed binary protocol inference",
-		Long:          rootLongHelp + "\n\nWiretap 0.4 — Wiretap OS product line. Run wiretap about for org details.",
+		Long:          rootLongHelp + "\n\nWiretap 0.5 — Wiretap OS product line. Run wiretap about for org details.",
 		SilenceErrors: true,
 		SilenceUsage:  true,
 		Version:       wt.Version,
@@ -81,6 +81,7 @@ func main() {
 		setGroup(cmdSummary(), "analysis"),
 		setGroup(cmdStats(), "analysis"),
 		setGroup(cmdDump(), "analysis"),
+		setGroup(cmdSearch(), "analysis"),
 		setGroup(cmdHypotheses(), "analysis"),
 		setGroup(cmdExplain(), "analysis"),
 		setGroup(cmdInspect(), "analysis"),

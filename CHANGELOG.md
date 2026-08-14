@@ -5,6 +5,17 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] — 2026-08-14
+
+### Added
+
+- `Dataset.Search` — find non-overlapping hex or ASCII byte patterns with message identity, offset, and surrounding context
+- `wiretap search --hex` / `--ascii` — CLI over that API (`--format json` supported)
+
+### Changed
+
+- Default version **0.5.0**
+
 ## [0.4.0] — 2026-08-13
 
 Unified product release under **[@theworker02](https://github.com/theworker02)**.
@@ -58,6 +69,7 @@ visualize, capture/watch, plugins API, PCAPNG, eval harness, examples expansion.
 Initial public toolkit: ingest, stats, inference passes, projects, reports,
 public Go API, mystery example, CI.
 
+[0.5.0]: https://github.com/theworker02/wiretap/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/theworker02/wiretap/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/theworker02/wiretap/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/theworker02/wiretap/compare/v0.1.0...v0.2.0
