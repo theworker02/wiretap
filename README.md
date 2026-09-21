@@ -1,4 +1,4 @@
-
+﻿
 <p align="center">
   <img src="assets/logo.svg" alt="Wiretap" width="640"/>
 </p>
@@ -13,16 +13,16 @@
 
 # Wiretap
 
-**Evidence-backed binary protocol inference — offline, deterministic, explainable**
+**Evidence-backed binary protocol inference â€” offline, deterministic, explainable**
 
 [![CI](https://github.com/theworker02/wiretap/actions/workflows/ci.yml/badge.svg)](https://github.com/theworker02/wiretap/actions/workflows/ci.yml)
 [![Go Reference](https://pkg.go.dev/badge/github.com/theworker02/wiretap.svg)](https://pkg.go.dev/github.com/theworker02/wiretap)
 [![Go](https://img.shields.io/badge/Go-1.23%2B-148f8a)](https://go.dev/)
 [![Version](https://img.shields.io/badge/version-0.5.0-0b0f12)](CHANGELOG.md)
-[![License](https://img.shields.io/badge/License-Apache%202.0-0b0f12)](LICENSE)
+[![License](https://img.shields.io/badge/license-Proprietary%20(source--available)-0b0f12)](LICENSE)
 [![Go Report Card](https://goreportcard.com/badge/github.com/theworker02/wiretap)](https://goreportcard.com/report/github.com/theworker02/wiretap)
 
-Built by **[@theworker02](https://github.com/theworker02)** — independent tooling for
+Built by **[@theworker02](https://github.com/theworker02)** â€” independent tooling for
 authorized binary-format analysis. Hex viewers show bytes. Wiretap asks what
 those bytes might mean, and shows the evidence.
 
@@ -31,7 +31,7 @@ $ wiretap analyze examples/mystery/captures.hex
 Wiretap Analysis Report
   length @ 0x04     confidence=High
   checksum trailer  confidence=High
-  …
+  â€¦
 ```
 
 No LLM APIs. No telemetry. If evidence is thin, Wiretap says **Insufficient evidence**.
@@ -59,7 +59,7 @@ No LLM APIs. No telemetry. If evidence is thin, Wiretap says **Insufficient evid
 
 ## Install
 
-Module docs: [pkg.go.dev/github.com/theworker02/wiretap](https://pkg.go.dev/github.com/theworker02/wiretap) · pinned: [@v0.5.0](https://pkg.go.dev/github.com/theworker02/wiretap@v0.5.0) · [GitHub Release](https://github.com/theworker02/wiretap/releases/tag/v0.5.0)
+Module docs: [pkg.go.dev/github.com/theworker02/wiretap](https://pkg.go.dev/github.com/theworker02/wiretap) Â· pinned: [@v0.5.0](https://pkg.go.dev/github.com/theworker02/wiretap@v0.5.0) Â· [GitHub Release](https://github.com/theworker02/wiretap/releases/tag/v0.5.0)
 
 ```bash
 go install github.com/theworker02/wiretap/cmd/wiretap@v0.5.0
@@ -94,7 +94,7 @@ wiretap explain --at field:0 examples/mystery/captures.hex
 wiretap visualize examples/mystery/captures.hex -o map.svg
 ```
 
-PowerShell demo: `scripts/demo.ps1` · Unix: `scripts/demo.sh`
+PowerShell demo: `scripts/demo.ps1` Â· Unix: `scripts/demo.sh`
 
 ## What Wiretap does
 
@@ -107,7 +107,7 @@ PowerShell demo: `scripts/demo.ps1` · Unix: `scripts/demo.sh`
 | A checkout of this repo                                           | Example catalog, eval harness, docs site              |
 
 
-**Always distinguished:** observation · hypothesis · confidence · evidence.
+**Always distinguished:** observation Â· hypothesis Â· confidence Â· evidence.
 
 ### Inference (merged product surface)
 
@@ -173,7 +173,7 @@ ds, err := wt.LoadPath("captures.hex", wt.IngestOptions{OnePerLine: true})
 res, err := wt.Analyze(context.Background(), ds, wt.AnalyzeOptions{Budget: wt.BudgetNormal})
 ```
 
-Module: [`github.com/theworker02/wiretap`](https://pkg.go.dev/github.com/theworker02/wiretap) · example: [`examples/library`](examples/library)
+Module: [`github.com/theworker02/wiretap`](https://pkg.go.dev/github.com/theworker02/wiretap) Â· example: [`examples/library`](examples/library)
 
 ## Architecture
 
@@ -208,7 +208,7 @@ flowchart LR
 | `schema`             | AST, lint, validate, codegen          |
 
 
-Pipeline stages are first-class — not bolted-on “phases.” Budgets (`quick` /
+Pipeline stages are first-class â€” not bolted-on â€œphases.â€ Budgets (`quick` /
 `normal` / `exhaustive`) tune depth inside the same engine.
 
 ## Examples
@@ -231,12 +231,12 @@ wiretap catalog
 
 ## Security & privacy
 
-- **Authorized use only** — interoperability, debugging, migration, preservation,
+- **Authorized use only** â€” interoperability, debugging, migration, preservation,
 authorized research. See [SECURITY.md](SECURITY.md) and
 [docs/capture-ethics.md](docs/capture-ethics.md).
-- **Acquisition ≠ analysis** — PCAP/drop-folder helpers load operator-provided
+- **Acquisition â‰  analysis** â€” PCAP/drop-folder helpers load operator-provided
 files; they do not MITM or open live sniffers by default.
-- **Privacy** — offline, no telemetry, no cloud model calls.
+- **Privacy** â€” offline, no telemetry, no cloud model calls.
 
 
 
@@ -245,7 +245,7 @@ files; they do not MITM or open live sniffers by default.
 - Docs index: [docs/](docs/)
 - Site: [theworker02.github.io/wiretap](https://theworker02.github.io/wiretap/) ([docs-site/](docs-site/))
 - Module API: [pkg.go.dev](https://pkg.go.dev/github.com/theworker02/wiretap)
-- Brand: [docs/brand.md](docs/brand.md) · assets: [assets/](assets/)
+- Brand: [docs/brand.md](docs/brand.md) Â· assets: [assets/](assets/)
 - Org: [ORGANIZATION.md](ORGANIZATION.md)
 
 ```bash
@@ -265,8 +265,8 @@ make build
 go test ./...
 ```
 
-Funding: [GitHub Sponsors](https://github.com/sponsors/theworker02) ·
-[thanks.dev](https://thanks.dev/u/gh/theworker02) ·
+Funding: [GitHub Sponsors](https://github.com/sponsors/theworker02) Â·
+[thanks.dev](https://thanks.dev/u/gh/theworker02) Â·
 [`.github/FUNDING.yml`](.github/FUNDING.yml)
 
 ### Eval (measured, synthetic only)
@@ -277,10 +277,9 @@ wiretap eval --n 50 --budget normal --seed 1
 
 Regression floors are enforced in tests. Do not treat synth scores as production
 accuracy claims. Recent measured ballpark (seed=1, n=50, normal): precision ~0.83,
-FPR ~0.17, recall 1.0 — see [docs/eval.md](docs/eval.md) and [CHANGELOG.md](CHANGELOG.md).
+FPR ~0.17, recall 1.0 â€” see [docs/eval.md](docs/eval.md) and [CHANGELOG.md](CHANGELOG.md).
 
 ## License
 
-Apache License 2.0 — see [LICENSE](LICENSE).
+**Source-available proprietary** — evaluation under [LICENSE](./LICENSE); commercial / production use via [COMMERCIAL.md](./COMMERCIAL.md). See [LICENSE_TRANSITION_NOTICE.md](./LICENSE_TRANSITION_NOTICE.md) and [NOTICE](./NOTICE).
 
-Cite via [CITATION.cff](CITATION.cff) when appropriate.
