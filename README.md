@@ -1,4 +1,4 @@
-﻿
+
 <p align="center">
   <img src="assets/logo.svg" alt="Wiretap" width="640"/>
 </p>
@@ -283,3 +283,9 @@ FPR ~0.17, recall 1.0 â€” see [docs/eval.md](docs/eval.md) and [CHANGELOG.m
 
 **Source-available proprietary** — evaluation under [LICENSE](./LICENSE); commercial / production use via [COMMERCIAL.md](./COMMERCIAL.md). See [LICENSE_TRANSITION_NOTICE.md](./LICENSE_TRANSITION_NOTICE.md) and [NOTICE](./NOTICE).
 
+
+---
+
+## License & acquisition
+
+This project is **proprietary**. Production use, redistribution, and commercial deployment require a written commercial license or completed acquisition. See [LICENSE](./LICENSE) and [ACQUISITION.md](./ACQUISITION.md). Contact [@theworker02](https://github.com/theworker02).
